@@ -1,0 +1,36 @@
+li {
+    display:inline;
+    padding:0 7px;
+
+}
+
+button {
+    background-color: #65FF48;
+    border : 1px solid black;
+    text-decoration: none;
+    
+}
+
+.buttons {
+
+	margin: 0 auto;
+	text-align: center;
+}
+.square {
+    border: 1px solid black;
+    margin: 1;
+    float: left;
+    background: #65FF48;
+}
+
+.container {
+    width: 960px;
+    height: 960px;
+    overflow: auto;
+    margin: 20px auto; 
+
+}
+
+div {
+    display:block
+}
