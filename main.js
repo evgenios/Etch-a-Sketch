@@ -3,7 +3,7 @@ $(document).ready(function(){
 	createGrid(16);
 	
 	coloring();
-
+	var gridSize;
 	function createGrid(numberOfDivs) {
 		if(!numberOfDivs)
 			numberOfDivs = 16;
@@ -20,7 +20,7 @@ $(document).ready(function(){
 			
 			$grid.append($("<div></div>").css("clear", "both"));	
 		}
-		
+		gridSize = numberOfDivs;
 	};
 	
 	function coloring(){
@@ -37,7 +37,10 @@ $(document).ready(function(){
     };
 
     $("#new").click(function() {
-		createGrid(prompt("Enter number of divs!"));
+    	do{
+    		var $divs = Number(prompt("Please enter a number from 1 to 64"));
+		}while(isNaN($divs) || $divs > 64 || $divs < 1);
+		createGrid($divs);
 		coloring();
 	});
 
@@ -47,8 +50,18 @@ $(document).ready(function(){
 	}); 
 
 	$("#randomize").click(function() {
+		$(".square").css("background","#65FF48");
 		$(".square").on("mouseenter", function(){
 			$(this).css("background", randomColor);
 		});
+	});
+
+	$("#trail").on("click", function(){
+		createGrid(gridSize);
+			$(".square").hover(function(){
+				$(this).css({"opacity": 0});
+			}, function(){
+				$(this).fadeTo("slow", 1);
+			});
 	});
 });
