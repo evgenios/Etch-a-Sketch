@@ -21,24 +21,25 @@ $(document).ready(function(){
 			$grid.append($("<div></div>").css("clear", "both"));	
 		}
 		gridSize = numberOfDivs;
-	};
+	}
 	
 	function coloring(){
 		$(".square").on("mouseenter", function(){
 			$(this).css("background", "white");
 		});
-	};
+	}
 
     function randomColor(){
    		var r = Math.floor(Math.random() * (256 - 1 + 1)) + 1;
    		var g = Math.floor(Math.random() * (256 - 1 + 1)) + 1;
    		var b = Math.floor(Math.random() * (256 - 1 + 1)) + 1;
    		return ("rgb(" + r + "," + g + "," + b + ")");
-    };
+    }
 
     $("#new").click(function() {
+    	var $divs;
     	do{
-    		var $divs = Number(prompt("Please enter a number from 1 to 64"));
+    		 $divs = Number(prompt("Please enter a number from 1 to 64"));
 		}while(isNaN($divs) || $divs > 64 || $divs < 1);
 		createGrid($divs);
 		coloring();
